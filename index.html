@@ -4,9 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Webbutveckling-Ramschema</title>
-    <link rel="stylesheet" href="src/css/styles.css"
+    <link rel="stylesheet" href="src/css/styles.css">
   </head>
   <body>
+
+    <main>
+        <div class="container">
+        <h1>Webbutveckling-Ramschema</h1>
+
+        <input type="text" id="search" placeholder="Sök efter kurskod eller kursnamn">
+
+        <table>
+          <thead>
+            <tr>
+              <th id="sort-by-code">Kurskod</th>
+              <th id="sort-by-name">Namn</th>
+              <th id="sort-by-progression">Progression</th>
+            </tr>
+          </thead>
+        
+          <tbody id="course">
+
+          </tbody>
+        </table>
+        </div>
+    </main>
+    
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
