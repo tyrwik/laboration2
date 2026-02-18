@@ -5,7 +5,35 @@ let courses = [];
 document.addEventListener("DOMContentLoaded", async () => {
     loadData();
     console.log("programmet fortsätter")
+
+    //händelselyssnare för sortering
+
+    //kurskod
+    document.querySelector("#sort-by-code").addEventListener("click", () => {
+        const sortedByCode = [...courses].sort((a, b) => 
+            a.code.localeCompare(b.code)
+    );
+    displayCourses(sortedByCode);
+    });
+
+    //kursnamn
+    document.querySelector("#sort-by-name").addEventListener("click", () => {
+        const sortedByName = [...courses].sort((a, b) => 
+            a.code.localeCompare(b.coursename)
+    );
+    displayCourses(sortedByName);
+    });
+
+    //progression
+    document.querySelector("#sort-by-progression").addEventListener("click", () => {
+        const sortedByProgresssion = [...courses].sort((a, b) => 
+            a.code.localeCompare(b.progression)
+    );
+    displayCourses(sortedByProgresssion);
+    });
 });
+
+
 
 async function loadData() {
     const url = "https://webbutveckling.miun.se/files/ramschema.json"
