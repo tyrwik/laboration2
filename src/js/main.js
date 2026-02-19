@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     //kursnamn
     document.querySelector("#sort-by-name").addEventListener("click", () => {
         const sortedByName = [...courses].sort((a, b) => 
-            a.code.localeCompare(b.coursename)
+            a.coursename.localeCompare(b.coursename)
     );
     displayCourses(sortedByName);
     });
@@ -27,14 +27,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     //progression
     document.querySelector("#sort-by-progression").addEventListener("click", () => {
         const sortedByProgresssion = [...courses].sort((a, b) => 
-            a.code.localeCompare(b.progression)
+            a.progression.localeCompare(b.progression)
     );
     displayCourses(sortedByProgresssion);
     });
+
+    //filtrering i sökfältet
+    const searchInput = document.getElementById("search");
+
+    searchInput.addEventListener("input", () => {
+        const searchText = searchInput.value;
+
+        const filterCourses = courses.filter(course =>
+            course.code.includes(searchText) ||
+            course.coursename.includes(searchText)
+        );
+
+        displayCourses(filterCourses);
+    })
+
 });
-
-
-
+    
 async function loadData() {
     const url = "https://webbutveckling.miun.se/files/ramschema.json"
 
@@ -64,3 +77,4 @@ function displayCourses(courses) {
         tableBody.appendChild(row);
     });
 }
+
